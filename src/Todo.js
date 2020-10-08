@@ -57,14 +57,14 @@ class Todo extends React.Component{
                 <input name type='text' placeholder='todo...' onChange={e => this.handleChange('newitem', e.target.value)}/>
                 <button type='button' onClick={this.addItem}>Add to list</button>   
                 <ul>
+                    <h1>test</h1>
                     {
-                        this.state.list.map(item =>                         
-                            <li key={item.id}>
-                                <input type='checkbox'/>
-                                {item.value}
-                                <button type='button'onClick={this.deleteItem(item.id)}>Delete</button> 
-                            </li>                            
-                        )              
+                        this.state.list.map(item => {
+                        return <li key={item.id}><input type='checkbox' />{item.value}<button type='button'onClick={() => this.deleteItem(item.id)}>Delete</button></li>
+                        })
+
+                                            
+                                     
                     }
                 </ul>
                 
@@ -78,3 +78,6 @@ class Todo extends React.Component{
 }
 
 export default Todo;
+
+//为什么<button type='button'onClick={() => this.deleteItem(item.id)}>Delete</button>
+//<button type='button' onClick={this.addItem}>Add to list</button> 
